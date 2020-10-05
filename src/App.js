@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { createConnection } from 'typeorm'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  useEffect(()=>{
+    createConnection({
+      type: 'sqlite',
+      database: ':memory:'
+    })
+  },[])
+
   return (
     <div className="App">
       <header className="App-header">
