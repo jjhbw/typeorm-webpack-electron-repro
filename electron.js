@@ -9,6 +9,10 @@ const isDev = isEnvSet ? parseInt(process.env.ELECTRON_IS_DEV, 10) === 1 : !app.
 
 function createWindow() {
     mainWindow = new electron.BrowserWindow({
+        webPreferences: {
+            // Allow access to NodeJS APIs from this window.
+            nodeIntegration: true
+        },
         // Hide the window until maximize() is called
         width: 1600,
         height: 900,
